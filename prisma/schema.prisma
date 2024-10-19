@@ -89,6 +89,6 @@ model Question {
     question String
     choices  String[]
     answer   Int
-    quiz     Quiz     @relation(fields: [quizId], references: [id])
+    quiz     Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
     quizId   String
 }

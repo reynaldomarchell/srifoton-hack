@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ShareButton } from "./page.client";
+import { DeleteButton, ShareButton } from "./page.client";
 import { headers } from "next/headers";
 
 export default async function Component() {
@@ -29,6 +29,12 @@ export default async function Component() {
           Saved Quizzes
         </h1>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {data.length === 0 && (
+            <div className="flex items-center justify-center text-lg text-muted-foreground">
+              No quizzes found, please create one.
+            </div>
+          )}
+
           {data.map((quiz) => (
             <Card
               key={quiz.id}
@@ -67,6 +73,7 @@ export default async function Component() {
                   </Button>
                 </Link>
                 <ShareButton quiz={quiz} domain={domain} />
+                <DeleteButton quiz={quiz} />
               </CardFooter>
             </Card>
           ))}
