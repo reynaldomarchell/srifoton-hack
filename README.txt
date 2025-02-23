@@ -3,7 +3,7 @@ Tujuan: Membuat quiz app powered by AI untuk membuat proses belajar yang jauh le
 
 Dengan harapan: membuat masyarakat Indonesia dan dunia yang lebih senang dan excited untuk belajar.
 
-Link website live: https://quizai.jer.ee/
+Link website live: https://quizai.rey.mba/
 
 ----------------------------------------------------
 
