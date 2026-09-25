@@ -6,7 +6,6 @@ import { env } from "~/env";
 
 const openai = createOpenAI({
   apiKey: env.OPEN_API_KEY,
-  compatibility: "strict", // strict mode, enable when using the OpenAI API
 });
 
 export const completionsRouter = createTRPCRouter({
@@ -22,9 +21,7 @@ export const completionsRouter = createTRPCRouter({
       const { topic, totalQuestions, language } = input;
 
       const result = await generateObject({
-        model: openai("gpt-4o-mini", {
-          structuredOutputs: true,
-        }),
+        model: openai("gpt-4o-mini"),
         schemaName: "quiz",
         schemaDescription: "Quiz for specific topic.",
         schema: z.object({
@@ -40,6 +37,6 @@ export const completionsRouter = createTRPCRouter({
         prompt: `Generate ${totalQuestions} questions about ${topic} using ${language} as language.`,
       });
 
-      return result;
+      return { object: result.object };
     }),
 });

@@ -6,7 +6,7 @@ import { api } from "~/trpc/server";
 import { type Quiz } from "@prisma/client";
 
 export default async function QuizListServer() {
-  const headerList = headers();
+  const headerList = await headers();
   const domain =
     headerList.get("x-forwarded-host") ??
     headerList.get("host") ??
